@@ -5,7 +5,9 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Ani, FMX.Objects, System.Skia,
-  FMX.Skia, FMX.Effects, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Edit, FMX.ListBox;
+  FMX.Skia, FMX.Effects, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Edit, FMX.ListBox,
+  Alcinoe.FMX.StdCtrls, FMX.MultiView, Alcinoe.FMX.Objects, Alcinoe.FMX.Ani, Alcinoe.FMX.Edit,
+  FMX.Colors;
 
 type
   TFormDesign = class(TForm)
@@ -28,10 +30,10 @@ type
     Layout4: TLayout;
     Layout5: TLayout;
     SkSvg2: TSkSvg;
-    SkSvg3: TSkSvg;
+    SkSvgAlert1: TSkSvg;
     LayoutComboBox: TLayout;
     Rectangle1: TRectangle;
-    SkSvg4: TSkSvg;
+    SkSvgAlert2: TSkSvg;
     ShadowEffect1: TShadowEffect;
     Layout3: TLayout;
     Layout6: TLayout;
@@ -47,14 +49,93 @@ type
     StyleBook1: TStyleBook;
     SkSvg6: TSkSvg;
     Layout8: TLayout;
+    LayoutTop: TLayout;
+    RectPesq: TRectangle;
+    EditPesq: TEdit;
+    Line2: TLine;
+    sbPesq: TRectangle;
+    LayFiltro: TLayout;
+    sbFiltro: TRectangle;
+    mvFiltro: TMultiView;
+    CalloutRectangle1: TCalloutRectangle;
+    VertScrollBox1: TVertScrollBox;
+    LayoutMV: TLayout;
+    Layout10: TLayout;
+    Layout11: TLayout;
+    ALSwitch: TALSwitch;
+    Text1: TText;
+    Line1: TLine;
+    RectFundo: TRectangle;
+    ColorAnimation1: TColorAnimation;
+    FloatAnimation1: TFloatAnimation;
+    ShadowEffect3: TShadowEffect;
+    ColorAnimation2: TColorAnimation;
+    FloatAnimation2: TFloatAnimation;
+    ShadowEffect4: TShadowEffect;
+    ShadowEffect5: TShadowEffect;
+    Timer1: TTimer;
+    LayoutCli: TLayout;
+    SkSvg3: TSkSvg;
+    SkSvg4: TSkSvg;
+    Layout1: TLayout;
+    MultiView1: TMultiView;
+    Rect12: TRectangle;
+    LaySair: TLayout;
+    Label10: TLabel;
+    Rectangle4: TRectangle;
+    Layout12: TLayout;
+    LayCasd: TLayout;
+    Label18: TLabel;
+    Layout14: TLayout;
+    Rectangle8: TRectangle;
+    LayMenu: TLayout;
+    Rectangle13: TRectangle;
+    Layout17: TLayout;
+    RectMenu: TRectangle;
+    PathMenu: TPath;
+    PathExit: TPath;
+    Label22: TLabel;
+    TextNumPed: TText;
+    Layout18: TLayout;
+    RectWhite: TRectangle;
+    SkSvg7: TSkSvg;
+    SkSvg8: TSkSvg;
+    FloatAnimation3: TFloatAnimation;
+    ShadowEffect6: TShadowEffect;
+    SkSvg9: TSkSvg;
+    FloatAnimation4: TFloatAnimation;
+    ShadowEffect7: TShadowEffect;
+    Layout13: TLayout;
+    Rectangle3: TRectangle;
+    ColorAnimation3: TColorAnimation;
+    FloatAnimation5: TFloatAnimation;
+    ShadowEffect8: TShadowEffect;
+    SkAnimatedImage2: TSkAnimatedImage;
+    Rectangle5: TRectangle;
+    SkSvg10: TSkSvg;
     procedure RectButMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
       Y: Single);
     procedure RectButMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
       Y: Single);
     procedure EditEnter(Sender: TObject);
     procedure EditExit(Sender: TObject);
+    procedure ALSwitchChange(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure Rectangle3Click(Sender: TObject);
+    procedure SkAnimatedImage2AnimationFinish(Sender: TObject);
+    procedure SkSvg10Click(Sender: TObject);
+
   private
     { Private declarations }
+
+    //cor do swith
+    const SwtColCheck = $FF00A9A7;
+    const SwtColnoCheck = TAlphaColors.White;
+    const SwtColnoCheckBk = TAlphaColors.Silver;
+    //cor do Tedit
+    const RectEditColEnter = TAlphaColors.Blue;
+    const RectEditColExit = TAlphaColors.Black;
+    const RectEditColExitEmpy = TAlphaColors.Red;
   public
     { Public declarations }
   end;
@@ -68,8 +149,28 @@ implementation
 
 
 //Cor ao clicar no TEdit--------------------------------------------------------
+procedure TFormDesign.ALSwitchChange(Sender: TObject);
+begin
+  if Sender is TALSwitch then
+  begin
+    var
+      Switch := TALSwitch(Sender);
+    if Switch.IsChecked then
+    begin
+      Switch.Thumb.Fill.Color       := SwtColCheck;
+      Switch.Background.Fill.Color  := SwtColCheck;
+    end
+    else
+    begin
+      Switch.Thumb.Fill.Color       := SwtColnoCheck;
+      Switch.Background.Fill.Color  := SwtColnoCheckBk;
+    end;
+  end;
+end;
+
 procedure TFormDesign.EditEnter(Sender: TObject);
-Var I, j : Integer;
+Var
+  I, j : Integer;
   Rect : TRectangle;
   skLabel : TSkLabel;
   skSvg : TSkSvg;
@@ -109,11 +210,11 @@ begin
             .Controls[i])
           .Controls[0])
         .Controls[0])
-      .Controls[0]).TextSettings.FontColor := TAlphaColors.Blue;
+      .Controls[0]).TextSettings.FontColor := RectEditColEnter;
       Break;
     end;
 
-  Rect.Stroke.Color := TAlphaColors.Blue;
+  Rect.Stroke.Color := RectEditColEnter;
 
 end;
 //Cor ao sair do TEdit----------------------------------------------------------
@@ -159,7 +260,6 @@ begin
       Check := True;
   end;
 
-
   for I := 0 to Rect.ControlsCount - 1 do
     if Rect.Controls[i] is TLayout then
       Break;
@@ -172,35 +272,78 @@ begin
                  .Controls[0])
                .Controls[0]);
 
-
-
-
   if Check then
   begin
     skSvg.Visible := True;
     Rect.Stroke.Color := TAlphaColors.Red;
-    skLabel.TextSettings.FontColor := TAlphaColors.Red;
+    skLabel.TextSettings.FontColor := RectEditColExitEmpy;
   end
   else
   begin
     skSvg.Visible := False;
     Rect.Stroke.Color := TAlphaColors.Black;
-    skLabel.TextSettings.FontColor := TAlphaColors.Black;
+    skLabel.TextSettings.FontColor := RectEditColExit;
   end;
 
 
 end;
 
+procedure TFormDesign.Rectangle3Click(Sender: TObject);
+var
+  i : Integer;
+  fClose: Double;
+begin
+  if TRectangle(Sender).TagString = 'S' then Exit;
+  TRectangle(Sender).TagString := 'S';
+
+  for I := 0 to TRectangle(Sender).ChildrenCount -1 do
+    if TRectangle(Sender).Children[i] is TSkAnimatedImage then
+      Break;
+
+  TSkAnimatedImage(TRectangle(Sender).Children[i]).Animation.Start;
+end;
+
 procedure TFormDesign.RectButMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
   Y: Single);
+var
+  I : Integer;
 begin
-  TRectangle(Sender).opacity := 0.9;
+  for I := 0 to TRectangle(Sender).ChildrenCount -1 do
+    if TRectangle(Sender).Children[i] is TSkAnimatedImage then
+      if TRectangle(Sender).TagString = 'S' then Exit;
+
+  TRectangle(Sender).opacity := 0.8;
 end;
 
 procedure TFormDesign.RectButMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
   Y: Single);
 begin
   TRectangle(Sender).opacity := 1;
+end;
+
+procedure TFormDesign.SkAnimatedImage2AnimationFinish(Sender: TObject);
+var
+  fClose : Double;
+begin
+  fClose := 0.12;
+  if TSkAnimatedImage(Sender).Animation.Progress = fClose then
+    TSkAnimatedImage(Sender).Animation.Inverse := False
+  else
+    TSkAnimatedImage(Sender).Animation.Inverse := True;
+
+  TRectangle(TSkAnimatedImage(Sender).Parent).TagString := '';
+end;
+
+procedure TFormDesign.SkSvg10Click(Sender: TObject);
+begin
+  TEdit(TSkSvg(Sender).Parent).Text := '';
+end;
+
+procedure TFormDesign.Timer1Timer(Sender: TObject);
+begin
+  Timer1.Enabled := False;
+  SkSvgAlert1.Visible := False;
+  SkSvgAlert2.Visible := False;
 end;
 
 end.
