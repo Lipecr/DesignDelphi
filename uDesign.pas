@@ -113,6 +113,23 @@ type
     SkAnimatedImage2: TSkAnimatedImage;
     Rectangle5: TRectangle;
     SkSvg10: TSkSvg;
+    Layout9: TLayout;
+    Rectangle6: TRectangle;
+    Editbox: TEdit;
+    SkSvg11: TSkSvg;
+    ShadowEffect9: TShadowEffect;
+    Layout15: TLayout;
+    Layout16: TLayout;
+    Rectangle7: TRectangle;
+    SkLabel2: TSkLabel;
+    Rectangle9: TRectangle;
+    FloatAnimation6: TFloatAnimation;
+    ShadowEffect10: TShadowEffect;
+    Layout19: TLayout;
+    SkSvg12: TSkSvg;
+    ListBox1: TListBox;
+    mvPop: TMultiView;
+    LayPop: TRectangle;
     procedure RectButMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
       Y: Single);
     procedure RectButMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
@@ -124,6 +141,8 @@ type
     procedure Rectangle3Click(Sender: TObject);
     procedure SkAnimatedImage2AnimationFinish(Sender: TObject);
     procedure SkSvg10Click(Sender: TObject);
+    procedure Rectangle9Click(Sender: TObject);
+    procedure ListBox1ItemClick(const Sender: TCustomListBox; const Item: TListBoxItem);
 
   private
     { Private declarations }
@@ -138,6 +157,7 @@ type
     const RectEditColExitEmpy = TAlphaColors.Red;
   public
     { Public declarations }
+    procedure CarregarListBox(const Texto: array of string);
   end;
 
 var
@@ -288,6 +308,12 @@ begin
 
 end;
 
+procedure TFormDesign.ListBox1ItemClick(const Sender: TCustomListBox; const Item: TListBoxItem);
+begin
+  Editbox.Text := item.Text;
+  mvPop.HideMaster;
+end;
+
 procedure TFormDesign.Rectangle3Click(Sender: TObject);
 var
   i : Integer;
@@ -301,6 +327,12 @@ begin
       Break;
 
   TSkAnimatedImage(TRectangle(Sender).Children[i]).Animation.Start;
+end;
+
+procedure TFormDesign.Rectangle9Click(Sender: TObject);
+begin
+  mvPop.Width := LayPop.Width;
+  LayPop.OnClick(Self);
 end;
 
 procedure TFormDesign.RectButMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
@@ -340,10 +372,43 @@ begin
 end;
 
 procedure TFormDesign.Timer1Timer(Sender: TObject);
+var
+  Texto : array of string;
 begin
   Timer1.Enabled := False;
   SkSvgAlert1.Visible := False;
   SkSvgAlert2.Visible := False;
+
+  // Defina a string com todas as palavras
+  SetLength(Texto, 5);
+  Texto[0] := 'Maçã';
+  Texto[1] := 'Laranja';
+  Texto[2] := 'Banana';
+  Texto[3] := 'Morango';
+  Texto[4] := 'Abacaxi';
+
+  // Chama a função CarregarListView passando o array de strings
+  CarregarListBox(Texto);
+end;
+
+procedure TFormDesign.CarregarListBox(const Texto: array of string);
+var
+  Item: TListBoxItem;
+  I : Integer;
+begin
+  // Limpa o ListBox antes de adicionar novos itens
+  ListBox1.Clear;
+
+  // Adiciona cada texto como um item separado no ListBox
+  for I := 0 to Length(Texto) - 1 do
+  begin
+    // Cria um novo item para cada texto
+    Item := TListBoxItem.Create(ListBox1);
+    Item.Text := Texto[I];
+    Item.Height := 25; // Define a altura do item
+
+    ListBox1.AddObject(Item);
+  end;
 end;
 
 end.
