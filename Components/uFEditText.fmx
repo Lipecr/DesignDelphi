@@ -1,0 +1,123 @@
+object frmEdit: TfrmEdit
+  HitTest = False
+  Size.Width = 392.000000000000000000
+  Size.Height = 56.000000000000000000
+  Size.PlatformDefault = False
+  object LaySVG: TLayout
+    Align = MostLeft
+    Size.Width = 30.000000000000000000
+    Size.Height = 56.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object SkSvg: TSkSvg
+      Align = Client
+      Margins.Top = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 30.000000000000000000
+      Size.Height = 46.000000000000000000
+      Size.PlatformDefault = False
+      Svg.Source = 
+        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" f' +
+        'ill="none" id="user"><path fill="#000" d="M12 11a4 4 0 1 0 0-8 4' +
+        ' 4 0 0 0 0 8zm0 2a9.985 9.985 0 0 0-8 4 9.985 9.985 0 0 0 8 4 9.' +
+        '985 9.985 0 0 0 8-4 9.985 9.985 0 0 0-8-4z"></path></svg>'
+    end
+  end
+  object RectBorda: TRectangle
+    Align = Client
+    EnableDragHighlight = False
+    Fill.Kind = None
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Size.Width = 357.000000000000000000
+    Size.Height = 46.000000000000000000
+    Size.PlatformDefault = False
+    XRadius = 5.000000000000000000
+    YRadius = 5.000000000000000000
+    object edText: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      StyleLookup = 'EditClear'
+      TabOrder = 0
+      TextSettings.Font.Size = 16.000000000000000000
+      TextSettings.FontColor = claWhite
+      Margins.Left = 8.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 344.000000000000000000
+      Size.Height = 36.000000000000000000
+      Size.PlatformDefault = False
+      StyledSettings = [Family, Style]
+      ParentShowHint = False
+      ShowHint = False
+      OnEnter = edTextEnter
+      OnExit = edTextExit
+      object SkSvgAlert: TSkSvg
+        Align = MostRight
+        Margins.Top = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.X = 326.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 18.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        Svg.OverrideColor = claCoral
+        Svg.Source = 
+          '<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0' +
+          ' 0 64 64" viewBox="0 0 64 64" id="attention"><path fill="#f04844' +
+          '" d="M32,0C14.35,0,0,14.35,0,32c0,17.65,14.35,32,32,32s32-14.35,' +
+          '32-32C64,14.35,49.65,0,32,0z M29.29,11.84'#13#10#9'c0-1.5,1.22-2.7,2.71' +
+          '-2.7c1.5,0,2.71,1.2,2.71,2.7v26.57c0,1.5-1.22,2.7-2.71,2.7c-1.5,' +
+          '0-2.71-1.2-2.71-2.7V11.84z M32,53.54'#13#10#9'c-2.15,0-3.91-1.72-3.91-3' +
+          '.84c0-2.13,1.75-3.85,3.91-3.85c2.15,0,3.91,1.72,3.91,3.85C35.91,' +
+          '51.82,34.15,53.54,32,53.54z"></path></svg>'
+      end
+    end
+    object Layout5: TLayout
+      Align = Contents
+      Size.Width = 357.000000000000000000
+      Size.Height = 46.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object Layout4: TLayout
+        Align = Top
+        Padding.Left = 10.000000000000000000
+        Margins.Top = -8.000000000000000000
+        Position.Y = -8.000000000000000000
+        Size.Width = 357.000000000000000000
+        Size.Height = 15.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object RectDesc: TRectangle
+          Align = Left
+          Fill.Color = claWhite
+          HitTest = False
+          Position.X = 10.000000000000000000
+          Size.Width = 55.000000000000000000
+          Size.Height = 15.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          XRadius = 7.500000000000000000
+          YRadius = 7.500000000000000000
+          object SkLDesc: TSkLabel
+            Align = Client
+            Size.Width = 55.000000000000000000
+            Size.Height = 15.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Family]
+            TextSettings.Font.Stretch = Condensed
+            TextSettings.Font.Weight = Semibold
+            TextSettings.HorzAlign = Center
+            TextSettings.Trimming = None
+            Words = <
+              item
+                Text = 'Teste'
+              end>
+          end
+        end
+      end
+    end
+  end
+end

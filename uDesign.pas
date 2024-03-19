@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Ani, FMX.Objects, System.Skia,
   FMX.Skia, FMX.Effects, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Edit, FMX.ListBox,
   Alcinoe.FMX.StdCtrls, FMX.MultiView, Alcinoe.FMX.Objects, Alcinoe.FMX.Ani, Alcinoe.FMX.Edit,
-  FMX.Colors;
+  FMX.Colors, uFEditText, uFButton;
 
 type
   TFormDesign = class(TForm)
@@ -19,18 +19,8 @@ type
     SkAnimatedImage1: TSkAnimatedImage;
     SkSvg1: TSkSvg;
     GlowEffect1: TGlowEffect;
-    RectNome: TRectangle;
-    Edit: TEdit;
-    RectNomeDesc: TRectangle;
-    ShadowEffect2: TShadowEffect;
     LayoutButton: TLayout;
-    Layout2: TLayout;
-    SkLDesc: TSkLabel;
     LayoutEditCustom: TLayout;
-    Layout4: TLayout;
-    Layout5: TLayout;
-    SkSvg2: TSkSvg;
-    SkSvgAlert1: TSkSvg;
     LayoutComboBox: TLayout;
     Rectangle1: TRectangle;
     SkSvgAlert2: TSkSvg;
@@ -53,7 +43,6 @@ type
     RectPesq: TRectangle;
     EditPesq: TEdit;
     Line2: TLine;
-    sbPesq: TRectangle;
     LayFiltro: TLayout;
     sbFiltro: TRectangle;
     mvFiltro: TMultiView;
@@ -66,16 +55,12 @@ type
     Text1: TText;
     Line1: TLine;
     RectFundo: TRectangle;
-    ColorAnimation1: TColorAnimation;
-    FloatAnimation1: TFloatAnimation;
-    ShadowEffect3: TShadowEffect;
     ColorAnimation2: TColorAnimation;
     FloatAnimation2: TFloatAnimation;
     ShadowEffect4: TShadowEffect;
     ShadowEffect5: TShadowEffect;
     Timer1: TTimer;
     LayoutCli: TLayout;
-    SkSvg3: TSkSvg;
     SkSvg4: TSkSvg;
     Layout1: TLayout;
     MultiView1: TMultiView;
@@ -130,6 +115,8 @@ type
     ListBox1: TListBox;
     mvPop: TMultiView;
     LayPop: TRectangle;
+    frmEdit1: TfrmEdit;
+    frmBPesq: TfrmButton;
     procedure RectButMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
       Y: Single);
     procedure RectButMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
@@ -376,8 +363,11 @@ var
   Texto : array of string;
 begin
   Timer1.Enabled := False;
-  SkSvgAlert1.Visible := False;
+  frmEdit1.SkSvgAlert.Visible := False;
   SkSvgAlert2.Visible := False;
+  frmEdit1.EditColEnter := TAlphaColors.Blue;
+  frmEdit1.EditColExit :=  TAlphaColors.Black;
+  frmEdit1.EditColExitEmpy := TAlphaColors.Red;
 
   // Defina a string com todas as palavras
   SetLength(Texto, 5);

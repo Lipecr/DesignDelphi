@@ -2,8 +2,10 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2024/01/23 08:33:38.000.727,=C:\Users\fcr25\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2024/01/23 13:08:19.000.236,C:\Users\fcr25\OneDrive\Área de Trabalho\Design\uDesign.fmx=C:\Users\fcr25\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
-    <Transaction>2024/01/23 13:08:19.000.236,C:\Users\fcr25\OneDrive\Área de Trabalho\Design\uDesign.pas=C:\Users\fcr25\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2024/01/23 13:08:31.000.458,C:\Users\fcr25\OneDrive\Área de Trabalho\Design\ProjectDesign.dproj=C:\Users\fcr25\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/01/23 13:08:19.000.236,C:\Users\fcr25\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\fcr25\OneDrive\Área de Trabalho\Design\uDesign.pas</Transaction>
+    <Transaction>2024/01/23 13:08:19.000.236,C:\Users\fcr25\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\fcr25\OneDrive\Área de Trabalho\Design\uDesign.fmx</Transaction>
+    <Transaction>2024/01/23 13:08:31.000.458,C:\Users\fcr25\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\fcr25\OneDrive\Área de Trabalho\Design\ProjectDesign.dproj</Transaction>
+    <Transaction>2024/03/19 15:03:20.329,=C:\Delphi\DesignDelphi\Components\uFButton.pas</Transaction>
+    <Transaction>2024/03/19 15:03:20.423,=C:\Delphi\DesignDelphi\Components\uFEditText.pas</Transaction>
   </Transactions>
 </BorlandProject>

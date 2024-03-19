@@ -253,143 +253,70 @@ object FormDesign: TFormDesign
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 3
-        object RectNome: TRectangle
+        inline frmEdit1: TfrmEdit
           Align = Client
-          EnableDragHighlight = False
-          Fill.Color = claWhitesmoke
+          HitTest = False
           Margins.Left = 5.000000000000000000
-          Margins.Top = 5.000000000000000000
           Margins.Right = 5.000000000000000000
-          Margins.Bottom = 5.000000000000000000
-          Size.Width = 520.000000000000000000
-          Size.Height = 40.000000000000000000
+          Size.Width = 575.000000000000000000
+          Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
-          XRadius = 5.000000000000000000
-          YRadius = 5.000000000000000000
-          object Edit: TEdit
-            Touch.InteractiveGestures = [LongTap, DoubleTap]
-            Align = Client
-            StyleLookup = 'transparentedit'
-            TabOrder = 0
-            TextSettings.Font.Size = 16.000000000000000000
-            Margins.Left = 8.000000000000000000
-            Margins.Top = 5.000000000000000000
-            Margins.Right = 5.000000000000000000
-            Margins.Bottom = 5.000000000000000000
-            Size.Width = 507.000000000000000000
-            Size.Height = 30.000000000000000000
-            Size.PlatformDefault = False
-            StyledSettings = [Family, Style, FontColor]
-            ParentShowHint = False
-            ShowHint = False
-            OnEnter = EditEnter
-            OnExit = EditExit
-            object SkSvgAlert1: TSkSvg
-              Align = MostRight
-              Margins.Right = 5.000000000000000000
-              Position.X = 487.000000000000000000
-              Size.Width = 15.000000000000000000
-              Size.Height = 30.000000000000000000
-              Size.PlatformDefault = False
+          inherited LaySVG: TLayout
+            Size.Width = 50.000000000000000000
+            Size.Height = 50.000000000000000000
+            inherited SkSvg: TSkSvg
+              Size.Width = 50.000000000000000000
+              Size.Height = 40.000000000000000000
               Svg.Source = 
-                '<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0' +
-                ' 0 64 64" viewBox="0 0 64 64" id="attention"><path fill="#f04844' +
-                '" d="M32,0C14.35,0,0,14.35,0,32c0,17.65,14.35,32,32,32s32-14.35,' +
-                '32-32C64,14.35,49.65,0,32,0z M29.29,11.84'#13#10#9'c0-1.5,1.22-2.7,2.71' +
-                '-2.7c1.5,0,2.71,1.2,2.71,2.7v26.57c0,1.5-1.22,2.7-2.71,2.7c-1.5,' +
-                '0-2.71-1.2-2.71-2.7V11.84z M32,53.54'#13#10#9'c-2.15,0-3.91-1.72-3.91-3' +
-                '.84c0-2.13,1.75-3.85,3.91-3.85c2.15,0,3.91,1.72,3.91,3.85C35.91,' +
-                '51.82,34.15,53.54,32,53.54z"></path></svg>'
+                '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.' +
+                'w3.org/1999/xlink" width="16" height="16" id="user"><defs><linea' +
+                'rGradient id="c" x1="-834" x2="-826" y1="950.126" y2="950.126" g' +
+                'radientTransform="translate(146.997 243.258)" gradientUnits="use' +
+                'rSpaceOnUse" xlink:href="#a"></linearGradient><linearGradient id' +
+                '="a"><stop offset="0" stop-color="#fcd635"></stop><stop offset="' +
+                '1" stop-color="#f7a928"></stop></linearGradient><linearGradient ' +
+                'id="d" x1="-689" x2="-677" y1="165.511" y2="165.511" gradientUni' +
+                'ts="userSpaceOnUse" xlink:href="#b"></linearGradient><linearGrad' +
+                'ient id="b"><stop offset="0" stop-color="#4b5d64"></stop><stop o' +
+                'ffset="1" stop-color="#3d4155"></stop></linearGradient></defs><g' +
+                ' transform="translate(691 -1189.373)"><circle cx="-683.003" cy="' +
+                '1193.384" r="4" fill="url(#c)"></circle><path fill="url(#d)" d="' +
+                'M-686.498 162.021c-1.386 0-2.502 1.018-2.502 2.282V168.494l.006.' +
+                '006H-689a.5.5 0 0 0 .146.354.5.5 0 0 0 .354.146h10.994l.006-.006' +
+                'V169a.5.5 0 0 0 .354-.146.5.5 0 0 0 .146-.354V164.303c0-1.264-1.' +
+                '116-2.282-2.502-2.282h-6.996z" transform="translate(0 1036.362)"' +
+                '></path></g></svg>'
             end
           end
-          object ShadowEffect2: TShadowEffect
-            Distance = 3.000000000000000000
-            Direction = 45.000000000000000000
-            Softness = 0.300000011920929000
-            Opacity = 0.100000001490116100
-            ShadowColor = claBlack
-          end
-          object Layout5: TLayout
-            Align = Contents
+          inherited RectBorda: TRectangle
             Size.Width = 520.000000000000000000
             Size.Height = 40.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 1
-            object Layout4: TLayout
-              Align = Top
-              Padding.Left = 10.000000000000000000
-              Margins.Top = -8.000000000000000000
-              Position.Y = -8.000000000000000000
+            inherited edText: TEdit
+              StyleLookup = 'transparentedit'
+              TextSettings.FontColor = claBlack
+              Size.Width = 507.000000000000000000
+              Size.Height = 30.000000000000000000
+              inherited SkSvgAlert: TSkSvg
+                Position.X = 489.000000000000000000
+                Size.Height = 20.000000000000000000
+                Svg.OverrideColor = claRed
+              end
+            end
+            inherited Layout5: TLayout
               Size.Width = 520.000000000000000000
-              Size.Height = 15.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 0
-              object RectNomeDesc: TRectangle
-                Align = Left
-                Fill.Color = claWhite
-                HitTest = False
-                Position.X = 10.000000000000000000
-                Size.Width = 55.000000000000000000
-                Size.Height = 15.000000000000000000
-                Size.PlatformDefault = False
-                Stroke.Kind = None
-                XRadius = 7.500000000000000000
-                YRadius = 7.500000000000000000
-                object SkLDesc: TSkLabel
-                  Align = Client
-                  Size.Width = 55.000000000000000000
-                  Size.Height = 15.000000000000000000
-                  Size.PlatformDefault = False
-                  StyledSettings = [Family, FontColor]
-                  TextSettings.Font.Stretch = Condensed
-                  TextSettings.Font.Weight = Semibold
-                  TextSettings.HorzAlign = Center
-                  TextSettings.Trimming = None
-                  Words = <
-                    item
-                      Text = 'Entrada:'
-                    end>
+              Size.Height = 40.000000000000000000
+              inherited Layout4: TLayout
+                Size.Width = 520.000000000000000000
+                inherited RectDesc: TRectangle
+                  inherited SkLDesc: TSkLabel
+                    Words = <
+                      item
+                        Text = 'Entrada:'
+                      end>
+                  end
                 end
               end
             end
-          end
-        end
-        object Layout2: TLayout
-          Align = MostLeft
-          Margins.Left = 5.000000000000000000
-          Margins.Top = 5.000000000000000000
-          Margins.Bottom = 5.000000000000000000
-          Position.X = 5.000000000000000000
-          Position.Y = 5.000000000000000000
-          Size.Width = 50.000000000000000000
-          Size.Height = 40.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 1
-          object SkSvg2: TSkSvg
-            Align = Client
-            Margins.Bottom = 5.000000000000000000
-            Size.Width = 50.000000000000000000
-            Size.Height = 35.000000000000000000
-            Size.PlatformDefault = False
-            Svg.Source = 
-              '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.' +
-              'w3.org/1999/xlink" width="16" height="16" id="user"><defs><linea' +
-              'rGradient id="c" x1="-834" x2="-826" y1="950.126" y2="950.126" g' +
-              'radientTransform="translate(146.997 243.258)" gradientUnits="use' +
-              'rSpaceOnUse" xlink:href="#a"></linearGradient><linearGradient id' +
-              '="a"><stop offset="0" stop-color="#fcd635"></stop><stop offset="' +
-              '1" stop-color="#f7a928"></stop></linearGradient><linearGradient ' +
-              'id="d" x1="-689" x2="-677" y1="165.511" y2="165.511" gradientUni' +
-              'ts="userSpaceOnUse" xlink:href="#b"></linearGradient><linearGrad' +
-              'ient id="b"><stop offset="0" stop-color="#4b5d64"></stop><stop o' +
-              'ffset="1" stop-color="#3d4155"></stop></linearGradient></defs><g' +
-              ' transform="translate(691 -1189.373)"><circle cx="-683.003" cy="' +
-              '1193.384" r="4" fill="url(#c)"></circle><path fill="url(#d)" d="' +
-              'M-686.498 162.021c-1.386 0-2.502 1.018-2.502 2.282V168.494l.006.' +
-              '006H-689a.5.5 0 0 0 .146.354.5.5 0 0 0 .354.146h10.994l.006-.006' +
-              'V169a.5.5 0 0 0 .354-.146.5.5 0 0 0 .146-.354V164.303c0-1.264-1.' +
-              '116-2.282-2.502-2.282h-6.996z" transform="translate(0 1036.362)"' +
-              '></path></g></svg>'
           end
         end
       end
@@ -418,7 +345,7 @@ object FormDesign: TFormDesign
             Distance = 3.000000000000000000
             Direction = 45.000000000000000000
             Softness = 0.300000011920929000
-            Opacity = 0.100000001490116100
+            Opacity = 0.200000002980232200
             ShadowColor = claBlack
           end
           object Layout3: TLayout
@@ -2790,7 +2717,7 @@ object FormDesign: TFormDesign
           Margins.Top = 2.000000000000000000
           Margins.Right = 5.000000000000000000
           Margins.Bottom = 2.000000000000000000
-          Size.Width = 215.000000000000000000
+          Size.Width = 225.000000000000000000
           Size.Height = 36.000000000000000000
           Size.PlatformDefault = False
           TextPrompt = 'Pesquisar'
@@ -2802,7 +2729,7 @@ object FormDesign: TFormDesign
             HitTest = False
             LineType = Bottom
             Margins.Top = 5.000000000000000000
-            Size.Width = 215.000000000000000000
+            Size.Width = 225.000000000000000000
             Size.Height = 31.000000000000000000
             Size.PlatformDefault = False
             Stroke.Color = claAqua
@@ -2822,7 +2749,7 @@ object FormDesign: TFormDesign
             Margins.Top = 12.000000000000000000
             Margins.Right = 5.000000000000000000
             Margins.Bottom = 10.000000000000000000
-            Position.X = 196.000000000000000000
+            Position.X = 206.000000000000000000
             Position.Y = 12.000000000000000000
             Size.Width = 14.000000000000000000
             Size.Height = 14.000000000000000000
@@ -2834,84 +2761,6 @@ object FormDesign: TFormDesign
               'd="x"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-li' +
               'necap="round" stroke-linejoin="round" stroke-width="2"><path d="' +
               'M13 1 1 13M1 1l12 12"></path></g></svg>'
-          end
-        end
-        object sbPesq: TRectangle
-          Align = Right
-          Cursor = crHandPoint
-          Fill.Color = xFF3555A5
-          Margins.Left = 5.000000000000000000
-          Margins.Top = 2.000000000000000000
-          Margins.Right = 5.000000000000000000
-          Margins.Bottom = 2.000000000000000000
-          Position.X = 225.000000000000000000
-          Position.Y = 2.000000000000000000
-          Size.Width = 40.000000000000000000
-          Size.Height = 36.000000000000000000
-          Size.PlatformDefault = False
-          Stroke.Color = claAqua
-          XRadius = 5.000000000000000000
-          YRadius = 5.000000000000000000
-          OnMouseDown = RectButMouseDown
-          OnMouseUp = RectButMouseUp
-          object ColorAnimation1: TColorAnimation
-            StyleName = 'ColorAnimation1Style'
-            Enabled = True
-            Duration = 0.200000002980232200
-            PropertyName = 'Fill.Color'
-            StartValue = xFF33487B
-            StopValue = xFF3555A5
-            Trigger = 'IsMouseOver=false'
-            TriggerInverse = 'IsMouseOver=true'
-          end
-          object FloatAnimation1: TFloatAnimation
-            Duration = 0.200000002980232200
-            PropertyName = 'Opacity'
-            StartValue = 1.000000000000000000
-            StopValue = 1.000000000000000000
-            Trigger = 'IsMouseOver=false'
-          end
-          object ShadowEffect3: TShadowEffect
-            Distance = 3.000000000000000000
-            Direction = 45.000000000000000000
-            Softness = 0.300000011920929000
-            Opacity = 0.200000002980232200
-            ShadowColor = claBlack
-          end
-          object SkSvg3: TSkSvg
-            Align = Client
-            Margins.Left = 6.000000000000000000
-            Margins.Top = 6.000000000000000000
-            Margins.Right = 6.000000000000000000
-            Margins.Bottom = 6.000000000000000000
-            Size.Width = 28.000000000000000000
-            Size.Height = 24.000000000000000000
-            Size.PlatformDefault = False
-            Svg.OverrideColor = claAqua
-            Svg.Source = 
-              '<?xml version="1.0" standalone="no"?>'#13#10'<!DOCTYPE svg PUBLIC "-//' +
-              'W3C//DTD SVG 20010904//EN"'#13#10' "http://www.w3.org/TR/2001/REC-SVG-' +
-              '20010904/DTD/svg10.dtd">'#13#10'<svg version="1.0" xmlns="http://www.w' +
-              '3.org/2000/svg"'#13#10' width="512.000000pt" height="512.000000pt" vie' +
-              'wBox="0 0 512.000000 512.000000"'#13#10' preserveAspectRatio="xMidYMid' +
-              ' meet">'#13#10#13#10'<g transform="translate(0.000000,512.000000) scale(0.' +
-              '100000,-0.100000)"'#13#10'fill="#000000" stroke="none">'#13#10'<path d="M285' +
-              '3 4649 c-191 -20 -357 -70 -548 -165 -167 -82 -293 -173 -425'#13#10'-30' +
-              '4 -126 -126 -219 -254 -299 -411 -196 -384 -231 -824 -99 -1239 32' +
-              ' -101 98'#13#10'-249 140 -316 l26 -41 -544 -544 c-300 -299 -558 -564 -' +
-              '574 -589 -92 -143 -71'#13#10'-332 52 -457 75 -76 150 -107 258 -107 72 ' +
-              '0 95 4 150 29 60 26 104 68 625 586'#13#10'l560 557 30 -20 c52 -35 227 ' +
-              '-114 310 -142 411 -134 843 -105 1230 84 394 193'#13#10'689 529 825 939' +
-              ' 144 433 111 870 -97 1271 -112 218 -297 433 -493 573 -107 76'#13#10'-3' +
-              '17 184 -430 221 -222 73 -465 99 -697 75z m378 -474 c234 -41 448 ' +
-              '-153 620'#13#10'-324 222 -223 339 -505 339 -822 0 -580 -421 -1065 -100' +
-              '0 -1150 -112 -16 -321'#13#10'-6 -427 20 -306 76 -561 261 -724 525 -105' +
-              ' 171 -158 347 -166 557 -11 272 59'#13#10'510 213 726 171 239 448 416 7' +
-              '34 468 101 18 308 18 411 0z"/>'#13#10'<path d="M3085 3891 c-71 -42 -11' +
-              '2 -126 -99 -196 13 -73 78 -136 158 -155 23'#13#10'-5 74 -26 114 -46 13' +
-              '4 -67 243 -202 287 -359 22 -75 72 -127 139 -144 53 -13'#13#10'85 -8 14' +
-              '1 24 160 91 88 365 -165 628 -119 125 -269 224 -385 256 -64 17 -1' +
-              '55'#13#10'14 -190 -8z"/>'#13#10'</g>'#13#10'</svg>'
           end
         end
         object LayFiltro: TLayout
@@ -2983,6 +2832,39 @@ object FormDesign: TFormDesign
                 '0.5T320-660q0-29-20.5-49.5T250-730q-29 0-49.5 20.5T180-660q0 29 ' +
                 '20.5 49.5T250-590Zm230-30v-80h320v80H480Zm230 320ZM250-660Z"/></' +
                 'svg>'
+            end
+          end
+        end
+        inline frmBPesq: TfrmButton
+          Align = Right
+          HitTest = False
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          Position.X = 230.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 40.000000000000000000
+          Size.Height = 36.000000000000000000
+          Size.PlatformDefault = False
+          inherited SkPBShadow: TSkPaintBox
+            Size.Width = 40.000000000000000000
+            Size.Height = 36.000000000000000000
+            inherited RectFill: TRectangle
+              Size.Width = 40.000000000000000000
+              Size.Height = 36.000000000000000000
+              Stroke.Color = claAqua
+              XRadius = 5.000000000000000000
+              YRadius = 5.000000000000000000
+              inherited LayContent: TLayout
+                Size.Width = 40.000000000000000000
+                Size.Height = 36.000000000000000000
+                inherited SkSvgIcon: TSkSvg
+                  Margins.Top = 6.000000000000000000
+                  Margins.Bottom = 6.000000000000000000
+                  Size.Width = 28.000000000000000000
+                  Size.Height = 24.000000000000000000
+                  Svg.OverrideColor = claAqua
+                end
+              end
             end
           end
         end
